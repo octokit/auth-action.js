@@ -2,6 +2,10 @@
 
 > GitHub API token authentication for GitHub Actions
 
+[![@latest](https://img.shields.io/npm/v/@octokit/auth-action.svg)](https://www.npmjs.com/package/@octokit/auth-action)
+[![Build Status](https://travis-ci.com/octokit/auth-action.js.svg?branch=master)](https://travis-ci.com/octokit/auth-action.js)
+[![Greenkeeper](https://badges.greenkeeper.io/octokit/auth-action.js.svg)](https://greenkeeper.io/)
+
 `@octokit/auth-action` is one of [GitHub’s authentication strategies](https://github.com/octokit/auth.js).
 
 It does not require any configuration, but instead reads [the `GITHUB_TOKEN` environment variable](https://help.github.com/en/articles/virtual-environments-for-github-actions#github_token-secret) that is provided to GitHub Actions.
