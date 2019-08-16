@@ -1,0 +1,75 @@
+{
+  "name": "@octokit/auth-action",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.0-development",
+  "description": "GitHub API token authentication for GitHub Actions",
+  "scripts": {
+    "build": "pika build",
+    "test": "jest --coverage",
+    "semantic-release": "semantic-release"
+  },
+  "repository": "https://github.com/octokit/auth-action.js",
+  "keywords": [
+    "github",
+    "octokit",
+    "authentication",
+    "github-action",
+    "api"
+  ],
+  "author": "Gregor Martynus (https://github.com/gr2m)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/octokit/auth-action.js/issues"
+  },
+  "homepage": "https://github.com/octokit/auth-action.js#readme",
+  "dependencies": {
+    "@octokit/auth-token": "^2.0.0"
+  },
+  "devDependencies": {
+    "@octokit/request": "^5.0.1",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.0",
+    "@pika/plugin-ts-standard-pkg": "^0.6.0",
+    "@types/fetch-mock": "^7.3.1",
+    "@types/jest": "^24.0.13",
+    "fetch-mock": "^7.3.7",
+    "jest": "^24.8.0",
+    "semantic-release": "^15.13.21",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github",
+    [
+      "@semantic-release/npm",
+      {
+        "pkgRoot": "./pkg"
+      }
+    ]
+  ],
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ]
+    ]
+  }
+}
