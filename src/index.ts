@@ -1,11 +1,11 @@
-import { createTokenAuth, Types } from "@octokit/auth-token";
+import { createTokenAuth, Types as AuthTokenTypes } from "@octokit/auth-token";
 
 import { StrategyInterface } from "@octokit/types";
 
 export type Types = {
   StrategyOptions: never;
   AuthOptions: never;
-  Authentication: Types["Authentication"];
+  Authentication: AuthTokenTypes["Authentication"];
 };
 
 export const createActionAuth: StrategyInterface<
