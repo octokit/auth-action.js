@@ -43,7 +43,25 @@ const authentication = await auth();
 
 The `createActionAuth()` method has no options.
 
-It expects the `GITHUB_TOKEN` environment variable to be set which is provided to GitHub Actions, but [has to be configured explicitly](https://help.github.com/en/articles/virtual-environments-for-github-actions#github_token-secret).
+It expects the `GITHUB_TOKEN` variable to be set which is provided to GitHub Actions, but [has to be configured explicitly](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token).
+
+`GITHUB_TOKEN` can be passed as environment variable using [`env:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#env)
+
+```
+steps:
+  - name: My action
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+or using [`with:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)
+
+```
+steps:
+  - name: My action
+    with:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
 
 `GITHUB_TOKEN` can be set to any of the repository's secret, e.g. if you want to use a personal access token.
 
@@ -56,7 +74,7 @@ steps:
 
 `createActionAuth()` is also checking for the `GITHUB_ACTION` variable to be present to make sure that it runs within a GitHub Action.
 
-If either `GITHUB_ACTION` or `GITHUB_TOKEN` is not set an error is thrown.
+If `GITHUB_ACTION` or either `GITHUB_TOKEN` or `INPUT_GITHUB_TOKEN` is not set an error is thrown.
 
 ## `auth()`
 
