@@ -19,11 +19,18 @@ export const createActionAuth: StrategyInterface<
     );
   }
 
-  if (!process.env.GITHUB_TOKEN) {
+  if (!process.env.GITHUB_TOKEN && !process.env.INPUT_GITHUB_TOKEN) {
     throw new Error(
-      "[@octokit/auth-action] `GITHUB_TOKEN` environment variable is not set. See https://help.github.com/en/articles/virtual-environments-for-github-actions#github_token-secret"
+      "[@octokit/auth-action] `GITHUB_TOKEN` variable is not set. It must be set on either `env:` or `with:`. See https://github.com/octokit/auth-action.js#createactionauth"
     );
   }
 
-  return createTokenAuth(process.env.GITHUB_TOKEN);
+  if (process.env.GITHUB_TOKEN && process.env.INPUT_GITHUB_TOKEN) {
+    throw new Error(
+      "[@octokit/auth-action] `GITHUB_TOKEN` variable is set on both `env:` and `with:`. Use either the one or the other. See https://github.com/octokit/auth-action.js#createactionauth"
+    );
+  }
+
+  const token = process.env.GITHUB_TOKEN || process.env.INPUT_GITHUB_TOKEN
+  return createTokenAuth(token as string);
 };
