@@ -47,7 +47,7 @@ It expects the `GITHUB_TOKEN` variable to be set which is provided to GitHub Act
 
 `GITHUB_TOKEN` can be passed as environment variable using [`env:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#env)
 
-```
+```yml
 steps:
   - name: My action
     env:
@@ -56,7 +56,7 @@ steps:
 
 or using [`with:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)
 
-```
+```yml
 steps:
   - name: My action
     with:
