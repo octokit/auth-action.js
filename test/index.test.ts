@@ -19,13 +19,14 @@ test("README example", async () => {
   expect(authentication).toEqual({
     type: "token",
     token: "v1.1234567890abcdef1234567890abcdef12345678",
-    tokenType: "installation"
+    tokenType: "installation",
   });
 });
 
 test("README example using with:", async () => {
   process.env.GITHUB_ACTION = "my-action";
-  process.env.INPUT_GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
+  process.env.INPUT_GITHUB_TOKEN =
+    "v1.1234567890abcdef1234567890abcdef12345678";
 
   const auth = createActionAuth();
   const authentication = await auth();
@@ -33,7 +34,7 @@ test("README example using with:", async () => {
   expect(authentication).toEqual({
     type: "token",
     token: "v1.1234567890abcdef1234567890abcdef12345678",
-    tokenType: "installation"
+    tokenType: "installation",
   });
 });
 
@@ -51,7 +52,8 @@ test("GITHUB_ACTION not set", async () => {
 test("GITHUB_TOKEN and INPUT_GITHUB_TOKEN not set", async () => {
   process.env.GITHUB_ACTION = "my-action";
   process.env.GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
-  process.env.INPUT_GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
+  process.env.INPUT_GITHUB_TOKEN =
+    "v1.1234567890abcdef1234567890abcdef12345678";
 
   try {
     const auth = createActionAuth();
@@ -83,7 +85,7 @@ test('auth.hook(request, "GET /user")', async () => {
   const expectedRequestHeaders = {
     accept: "application/vnd.github.v3+json",
     authorization: "token v1.1234567890abcdef1234567890abcdef12345678",
-    "user-agent": "test"
+    "user-agent": "test",
   };
 
   const matchGetUser: MockMatcherFunction = (url, { body, headers }) => {
@@ -94,11 +96,11 @@ test('auth.hook(request, "GET /user")', async () => {
 
   const requestMock = request.defaults({
     headers: {
-      "user-agent": "test"
+      "user-agent": "test",
     },
     request: {
-      fetch: fetchMock.sandbox().getOnce(matchGetUser, { id: 123 })
-    }
+      fetch: fetchMock.sandbox().getOnce(matchGetUser, { id: 123 }),
+    },
   });
 
   const { hook } = createActionAuth();
