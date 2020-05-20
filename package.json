@@ -7,6 +7,9 @@
   "description": "GitHub API token authentication for GitHub Actions",
   "scripts": {
     "build": "pika build",
+    "lint": "prettier --check '{src,test}/**/*.{ts,md}' README.md *.json",
+    "lint:fix": "prettier --write '{src,test}/**/*.{ts,md}' README.md *.json",
+    "pretest": "npm run -s lint",
     "test": "jest --coverage",
     "semantic-release": "semantic-release"
   },
@@ -37,6 +40,7 @@
     "@types/jest": "^25.1.0",
     "fetch-mock": "^9.0.0",
     "jest": "^25.1.0",
+    "prettier": "^2.0.5",
     "semantic-release": "^17.0.0",
     "ts-jest": "^25.1.0",
     "typescript": "^3.7.2"

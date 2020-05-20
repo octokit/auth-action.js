@@ -31,6 +31,6 @@ export const createActionAuth: StrategyInterface<
     );
   }
 
-  const token = process.env.GITHUB_TOKEN || process.env.INPUT_GITHUB_TOKEN
+  const token = process.env.GITHUB_TOKEN || process.env.INPUT_GITHUB_TOKEN;
   return createTokenAuth(token as string);
 };
