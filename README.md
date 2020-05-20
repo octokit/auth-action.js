@@ -4,7 +4,6 @@
 
 [![@latest](https://img.shields.io/npm/v/@octokit/auth-action.svg)](https://www.npmjs.com/package/@octokit/auth-action)
 [![Build Status](https://github.com/octokit/auth-action.js/workflows/Test/badge.svg)](https://github.com/octokit/auth-action.js/actions?query=workflow%3ATest)
-[![Greenkeeper](https://badges.greenkeeper.io/octokit/auth-action.js.svg)](https://greenkeeper.io/)
 
 `@octokit/auth-action` is one of [GitHub’s authentication strategies](https://github.com/octokit/auth.js).
 
@@ -153,8 +152,8 @@ Or it can be passed as option to [`request()`](https://github.com/octokit/reques
 ```js
 const requestWithAuth = request.defaults({
   request: {
-    hook: auth.hook
-  }
+    hook: auth.hook,
+  },
 });
 
 const { data: authorizations } = await requestWithAuth("GET /authorizations");
