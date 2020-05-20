@@ -26,7 +26,7 @@
   "homepage": "https://github.com/octokit/auth-action.js#readme",
   "dependencies": {
     "@octokit/auth-token": "^2.4.0",
-    "@octokit/types": "^2.0.0"
+    "@octokit/types": "^4.0.1"
   },
   "devDependencies": {
     "@octokit/request": "^5.0.1",
