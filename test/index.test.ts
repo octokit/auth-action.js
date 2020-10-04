@@ -49,7 +49,7 @@ test("GITHUB_ACTION not set", async () => {
   }
 });
 
-test("GITHUB_TOKEN and INPUT_GITHUB_TOKEN not set", async () => {
+test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
   process.env.GITHUB_ACTION = "my-action";
   process.env.GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
   process.env.INPUT_GITHUB_TOKEN =
@@ -65,7 +65,7 @@ test("GITHUB_TOKEN and INPUT_GITHUB_TOKEN not set", async () => {
   }
 });
 
-test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
+test("GITHUB_TOKEN and INPUT_GITHUB_TOKEN not set", async () => {
   process.env.GITHUB_ACTION = "my-action";
 
   try {
