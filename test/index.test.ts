@@ -60,7 +60,7 @@ test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
     throw new Error("Should not resolve");
   } catch (error) {
     expect(error.message).toMatch(
-      /\[@octokit\/auth-action\] `GITHUB_TOKEN` variable is set on both `env:` and `with:`/i
+      /\[@octokit\/auth-action\] The token variable is specified more than once/i
     );
   }
 });
