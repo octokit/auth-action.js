@@ -7,6 +7,7 @@ afterEach(() => {
   delete process.env.GITHUB_ACTION;
   delete process.env.GITHUB_TOKEN;
   delete process.env.INPUT_GITHUB_TOKEN;
+  delete process.env.INPUT_TOKEN;
 });
 
 test("README example", async () => {
@@ -27,6 +28,20 @@ test("README example using with:", async () => {
   process.env.GITHUB_ACTION = "my-action";
   process.env.INPUT_GITHUB_TOKEN =
     "v1.1234567890abcdef1234567890abcdef12345678";
+
+  const auth = createActionAuth();
+  const authentication = await auth();
+
+  expect(authentication).toEqual({
+    type: "token",
+    token: "v1.1234567890abcdef1234567890abcdef12345678",
+    tokenType: "installation",
+  });
+});
+
+test("README example using with.token", async () => {
+  process.env.GITHUB_ACTION = "my-action";
+  process.env.INPUT_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
 
   const auth = createActionAuth();
   const authentication = await auth();
@@ -60,7 +75,22 @@ test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
     throw new Error("Should not resolve");
   } catch (error) {
     expect(error.message).toMatch(
-      /\[@octokit\/auth-action\] `GITHUB_TOKEN` variable is set on both `env:` and `with:`/i
+      /\[@octokit\/auth-action\] The token variable is specified more than once/i
+    );
+  }
+});
+
+test("both GITHUB_TOKEN and INPUT_TOKEN set", async () => {
+  process.env.GITHUB_ACTION = "my-action";
+  process.env.GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
+  process.env.INPUT_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
+
+  try {
+    const auth = createActionAuth();
+    throw new Error("Should not resolve");
+  } catch (error) {
+    expect(error.message).toMatch(
+      /\[@octokit\/auth-action\] The token variable is specified more than once/i
     );
   }
 });
