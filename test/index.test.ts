@@ -7,6 +7,7 @@ afterEach(() => {
   delete process.env.GITHUB_ACTION;
   delete process.env.GITHUB_TOKEN;
   delete process.env.INPUT_GITHUB_TOKEN;
+  delete process.env.INPUT_TOKEN;
 });
 
 test("README example", async () => {
