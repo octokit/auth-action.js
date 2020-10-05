@@ -62,6 +62,15 @@ steps:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+or named `token` using [`with:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)
+
+```yml
+steps:
+  - name: My action
+    with:
+      token: ${{ secrets.GITHUB_TOKEN }}
+```
+
 `GITHUB_TOKEN` can be set to any of the repository's secret, e.g. if you want to use a personal access token.
 
 ```yml
@@ -73,7 +82,7 @@ steps:
 
 `createActionAuth()` is also checking for the `GITHUB_ACTION` variable to be present to make sure that it runs within a GitHub Action.
 
-If `GITHUB_ACTION` or either `GITHUB_TOKEN` or `INPUT_GITHUB_TOKEN` is not set an error is thrown.
+If `GITHUB_ACTION` or neither `GITHUB_TOKEN`, `INPUT_GITHUB_TOKEN` or `INPUT_TOKEN` are set an error is thrown.
 
 ## `auth()`
 
