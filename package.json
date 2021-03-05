@@ -13,7 +13,7 @@
     "test": "jest --coverage",
     "semantic-release": "semantic-release"
   },
-  "repository": "https://github.com/octokit/auth-action.js",
+  "repository": "github:octokit/auth-action.js",
   "keywords": [
     "github",
     "octokit",
@@ -23,10 +23,6 @@
   ],
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/octokit/auth-action.js/issues"
-  },
-  "homepage": "https://github.com/octokit/auth-action.js#readme",
   "dependencies": {
     "@octokit/auth-token": "^2.4.0",
     "@octokit/types": "^6.0.3"
