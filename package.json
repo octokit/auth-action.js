@@ -25,9 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/auth-token": "^2.4.0",
-    "@octokit/types": "^6.0.3",
-    "i": "^0.3.6",
-    "npm": "^7.14.0"
+    "@octokit/types": "^6.0.3"
   },
   "devDependencies": {
     "@octokit/request": "^5.0.1",
