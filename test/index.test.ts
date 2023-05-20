@@ -55,7 +55,7 @@ test("README example using with.token", async () => {
 
 test("GITHUB_ACTION not set", async () => {
   try {
-    const auth = createActionAuth();
+    createActionAuth();
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
@@ -71,7 +71,7 @@ test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
     "v1.1234567890abcdef1234567890abcdef12345678";
 
   try {
-    const auth = createActionAuth();
+    createActionAuth();
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
@@ -86,7 +86,7 @@ test("both GITHUB_TOKEN and INPUT_TOKEN set", async () => {
   process.env.INPUT_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
 
   try {
-    const auth = createActionAuth();
+    createActionAuth();
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
@@ -99,7 +99,7 @@ test("GITHUB_TOKEN and INPUT_GITHUB_TOKEN not set", async () => {
   process.env.GITHUB_ACTION = "my-action";
 
   try {
-    const auth = createActionAuth();
+    createActionAuth();
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
@@ -118,7 +118,7 @@ test('auth.hook(request, "GET /user")', async () => {
     "user-agent": "test",
   };
 
-  const matchGetUser: MockMatcherFunction = (url, { body, headers }) => {
+  const matchGetUser: MockMatcherFunction = (url, { headers }) => {
     expect(url).toEqual("https://api.github.com/user");
     expect(headers).toStrictEqual(expectedRequestHeaders);
     return true;
