@@ -1,4 +1,7 @@
-import { createTokenAuth, type Types as AuthTokenTypes } from "@octokit/auth-token";
+import {
+  createTokenAuth,
+  type Types as AuthTokenTypes,
+} from "@octokit/auth-token";
 
 import type { StrategyInterface } from "@octokit/types";
 

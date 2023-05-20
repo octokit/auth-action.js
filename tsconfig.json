@@ -1,7 +1,7 @@
 {
   "extends": "@octokit/tsconfig",
   "compilerOptions": {
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*"]
 }
