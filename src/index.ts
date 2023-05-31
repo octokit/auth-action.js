@@ -25,7 +25,6 @@ export const createActionAuth: StrategyInterface<
   const definitions = [
     process.env.GITHUB_TOKEN,
     process.env.INPUT_GITHUB_TOKEN,
-    process.env["INPUT_GITHUB-TOKEN"],
     process.env.INPUT_TOKEN,
   ].filter(Boolean);
 
@@ -37,7 +36,7 @@ export const createActionAuth: StrategyInterface<
 
   if (definitions.length > 1) {
     throw new Error(
-      "[@octokit/auth-action] The token variable is specified more than once. Use either `with.token`, `with.GITHUB-TOKEN`, `with.GITHUB_TOKEN`, or `env.GITHUB_TOKEN`. See https://github.com/octokit/auth-action.js#createactionauth"
+      "[@octokit/auth-action] The token variable is specified more than once. Use either `with.token`, `with.GITHUB_TOKEN`, or `env.GITHUB_TOKEN`. See https://github.com/octokit/auth-action.js#createactionauth"
     );
   }
 
