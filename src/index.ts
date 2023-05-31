@@ -25,7 +25,7 @@ export const createActionAuth: StrategyInterface<
   const definitions = [
     process.env.GITHUB_TOKEN,
     process.env.INPUT_GITHUB_TOKEN,
-    process.env['INPUT_GITHUB-TOKEN'],
+    process.env["INPUT_GITHUB-TOKEN"],
     process.env.INPUT_TOKEN,
   ].filter(Boolean);
 

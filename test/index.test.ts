@@ -7,7 +7,7 @@ afterEach(() => {
   delete process.env.GITHUB_ACTION;
   delete process.env.GITHUB_TOKEN;
   delete process.env.INPUT_GITHUB_TOKEN;
-  delete process.env['INPUT_GITHUB-TOKEN'];
+  delete process.env["INPUT_GITHUB-TOKEN"];
   delete process.env.INPUT_TOKEN;
 });
 
@@ -42,7 +42,8 @@ test("README example using with.github_token", async () => {
 
 test("README example using with.github-token", async () => {
   process.env.GITHUB_ACTION = "my-action";
-  process.env['INPUT_GITHUB-TOKEN'] = "v1.1234567890abcdef1234567890abcdef12345678";
+  process.env["INPUT_GITHUB-TOKEN"] =
+    "v1.1234567890abcdef1234567890abcdef12345678";
 
   const auth = createActionAuth();
   const authentication = await auth();
@@ -98,7 +99,7 @@ test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
 test("both GITHUB_TOKEN and INPUT_GITHUB-TOKEN set", async () => {
   process.env.GITHUB_ACTION = "my-action";
   process.env.GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
-  process.env['INPUT_GITHUB-TOKEN'] =
+  process.env["INPUT_GITHUB-TOKEN"] =
     "v1.1234567890abcdef1234567890abcdef12345678";
 
   try {
@@ -113,8 +114,9 @@ test("both GITHUB_TOKEN and INPUT_GITHUB-TOKEN set", async () => {
 
 test("both INPUT_GITHUB_TOKEN and INPUT_GITHUB-TOKEN set", async () => {
   process.env.GITHUB_ACTION = "my-action";
-  process.env.INPUT_GITHUB_TOKEN = "v1.1234567890abcdef1234567890abcdef12345678";
-  process.env['INPUT_GITHUB-TOKEN'] =
+  process.env.INPUT_GITHUB_TOKEN =
+    "v1.1234567890abcdef1234567890abcdef12345678";
+  process.env["INPUT_GITHUB-TOKEN"] =
     "v1.1234567890abcdef1234567890abcdef12345678";
 
   try {
