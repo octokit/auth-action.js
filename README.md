@@ -15,7 +15,7 @@ It does not require any configuration, but instead reads [the `GITHUB_TOKEN` env
 - [`createActionAuth()`](#createactionauth)
 - [`auth()`](#auth)
 - [Authentication object](#authentication-object)
-- [`auth.hook(request, route, options)` or `auth.hook(request, options)`](#authhookrequest-route-options-or-authhookrequest-options)
+- [`auth.hook(request, route, options)` or `auth.hook(request, options)`](#authhookrequest-route-optionsorauthhookrequest-options)
 - [Find more information](#find-more-information)
 - [License](#license)
 
@@ -60,6 +60,15 @@ steps:
   - name: My action
     with:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+or named `github-token` using [`with:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)
+
+```yml
+steps:
+  - name: My action
+    with:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 or named `token` using [`with:`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)
