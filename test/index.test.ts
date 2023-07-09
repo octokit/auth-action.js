@@ -59,7 +59,7 @@ test("GITHUB_ACTION not set", async () => {
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
-      /\[@octokit\/auth-action\] `GITHUB_ACTION` environment variable is not set/i
+      /\[@octokit\/auth-action\] `GITHUB_ACTION` environment variable is not set/i,
     );
   }
 });
@@ -75,7 +75,7 @@ test("both GITHUB_TOKEN and INPUT_GITHUB_TOKEN set", async () => {
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
-      /\[@octokit\/auth-action\] The token variable is specified more than once/i
+      /\[@octokit\/auth-action\] The token variable is specified more than once/i,
     );
   }
 });
@@ -90,7 +90,7 @@ test("both GITHUB_TOKEN and INPUT_TOKEN set", async () => {
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
-      /\[@octokit\/auth-action\] The token variable is specified more than once/i
+      /\[@octokit\/auth-action\] The token variable is specified more than once/i,
     );
   }
 });
@@ -103,7 +103,7 @@ test("GITHUB_TOKEN and INPUT_GITHUB_TOKEN not set", async () => {
     throw new Error("Should not resolve");
   } catch (error: any) {
     expect(error.message).toMatch(
-      /\[@octokit\/auth-action\] `GITHUB_TOKEN` variable is not set/i
+      /\[@octokit\/auth-action\] `GITHUB_TOKEN` variable is not set/i,
     );
   }
 });
