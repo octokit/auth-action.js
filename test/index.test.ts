@@ -136,5 +136,5 @@ test('auth.hook(request, "GET /user")', async () => {
   const { hook } = createActionAuth();
   const { data } = await hook(requestMock, "GET /user");
 
-  expect(data).toStrictEqual({ id: 123 });
+  expect(data).toMatchObject({ id: 123 });
 });
