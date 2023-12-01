@@ -1,7 +1,7 @@
 import { request } from "@octokit/request";
-import fetchMock, { MockMatcherFunction } from "fetch-mock";
+import fetchMock, { type MockMatcherFunction } from "fetch-mock";
 
-import { createActionAuth } from "../src/index";
+import { createActionAuth } from "../src/index.ts";
 
 afterEach(() => {
   delete process.env.GITHUB_ACTION;
