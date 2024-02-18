@@ -86,7 +86,7 @@ If `GITHUB_ACTION` or neither `GITHUB_TOKEN`, `INPUT_GITHUB_TOKEN` or `INPUT_TOK
 
 ## `auth()`
 
-The `auth()` method has no options. It returns a promise which resolves with the the authentication object.
+The `auth()` method has no options. It returns a promise which resolves with the authentication object.
 
 ## Authentication object
 
