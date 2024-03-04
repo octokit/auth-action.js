@@ -39,17 +39,6 @@ async function main() {
 
   const entryPoints = ["./pkg/dist-src/index.js"];
 
-  // Build the a CJS Node.js bundle
-  await esbuild.build({
-    entryPoints,
-    outdir: "pkg/dist-node",
-    bundle: true,
-    platform: "node",
-    target: "node14",
-    format: "cjs",
-    ...sharedOptions,
-  }),
-
   // Copy the README, LICENSE to the pkg folder
   await copyFile("LICENSE", "pkg/LICENSE");
   await copyFile("README.md", "pkg/README.md");
@@ -66,11 +55,15 @@ async function main() {
     JSON.stringify(
       {
         ...pkg,
-        files: ["dist-*/**", "bin/**"],
-        main: "dist-node/index.js",
-        module: "dist-web/index.js",
+        files: ["dist-*/**"],
+        main: "dist-src/index.js",
         types: "dist-types/index.d.ts",
-        source: "dist-src/index.js",
+        exports: {
+          ".": {
+            types: "./dist-types/index.d.ts",
+            import: "./dist-src/index.js",
+          }
+        },
         sideEffects: false,
       },
       null,
