@@ -26,8 +26,7 @@ It does not require any configuration, but instead reads [the `GITHUB_TOKEN` env
 Install with <code>npm install @octokit/auth-action</code>
 
 ```js
-const { createActionAuth } = require("@octokit/auth-action");
-// or: import { createActionAuth } from "@octokit/auth-action";
+import { createActionAuth } from "@octokit/auth-action";
 
 const auth = createActionAuth();
 const authentication = await auth();
