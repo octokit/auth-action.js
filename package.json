@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@octokit/request": "^9.0.1",
-    "@octokit/tsconfig": "^3.0.0",
+    "@octokit/tsconfig": "^4.0.0",
     "@types/jest": "^29.0.0",
     "esbuild": "^0.24.0",
     "fetch-mock": "npm:@gr2m/fetch-mock@9.11.0-pull-request-644.1",
