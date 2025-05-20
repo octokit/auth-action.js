@@ -1,6 +1,6 @@
 import { afterEach, expect, test } from "vitest";
 import { request } from "@octokit/request";
-import fetchMock from "fetch-mock";
+import fetchMock, { type RouteMatcher } from "fetch-mock";
 
 import { createActionAuth } from "../src/index.ts";
 
@@ -119,7 +119,7 @@ test('auth.hook(request, "GET /user")', async () => {
     "user-agent": "test",
   };
 
-  const matchGetUser: fetchMock.MockMatcherFunction = (url, { headers }) => {
+  const matchGetUser: RouteMatcher = ({ url, options: { headers } }) => {
     expect(url).toEqual("https://api.github.com/user");
     expect(headers).toStrictEqual(expectedRequestHeaders);
     return true;
@@ -130,7 +130,8 @@ test('auth.hook(request, "GET /user")', async () => {
       "user-agent": "test",
     },
     request: {
-      fetch: fetchMock.sandbox().getOnce(matchGetUser, { id: 123 }),
+      fetch: fetchMock.createInstance().getOnce(matchGetUser, { id: 123 })
+        .fetchHandler,
     },
   });
 
