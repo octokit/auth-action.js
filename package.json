@@ -12,7 +12,7 @@
     "lint": "prettier --check '{src,test}/**/*.{ts,md}' README.md *.json",
     "lint:fix": "prettier --write '{src,test}/**/*.{ts,md}' README.md *.json",
     "pretest": "npm run -s lint",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest --coverage",
+    "test": "vitest run --coverage",
     "semantic-release": "semantic-release"
   },
   "repository": "github:octokit/auth-action.js",
@@ -32,39 +32,13 @@
   "devDependencies": {
     "@octokit/request": "^10.0.2",
     "@octokit/tsconfig": "^4.0.0",
-    "@types/jest": "^29.0.0",
+    "@vitest/coverage-v8": "^3.1.1",
     "esbuild": "^0.25.0",
-    "fetch-mock": "npm:@gr2m/fetch-mock@9.11.0-pull-request-644.1",
+    "fetch-mock": "^11.0.0",
     "glob": "^11.0.0",
-    "jest": "^29.0.0",
     "prettier": "3.5.3",
-    "ts-jest": "^29.0.0",
-    "typescript": "^5.0.0"
-  },
-  "jest": {
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": [
-        "ts-jest",
-        {
-          "tsconfig": "test/tsconfig.test.json",
-          "useESM": true
-        }
-      ]
-    },
-    "coverageThreshold": {
-      "global": {
-        "statements": 100,
-        "branches": 100,
-        "functions": 100,
-        "lines": 100
-      }
-    },
-    "moduleNameMapper": {
-      "^(.+)\\.jsx?$": "$1"
-    }
+    "typescript": "^5.0.0",
+    "vitest": "^3.1.1"
   },
   "release": {
     "branches": [
