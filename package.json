@@ -30,7 +30,7 @@
     "@octokit/types": "^14.0.0"
   },
   "devDependencies": {
-    "@octokit/request": "^10.0.0",
+    "@octokit/request": "^10.0.2",
     "@octokit/tsconfig": "^4.0.0",
     "@types/jest": "^29.0.0",
     "esbuild": "^0.25.0",
