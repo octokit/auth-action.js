@@ -26,11 +26,11 @@
   "author": "Gregor Martynus (https://github.com/gr2m)",
   "license": "MIT",
   "dependencies": {
-    "@octokit/auth-token": "^5.0.0",
+    "@octokit/auth-token": "^6.0.0",
     "@octokit/types": "^14.0.0"
   },
   "devDependencies": {
-    "@octokit/request": "^9.0.1",
+    "@octokit/request": "^10.0.0",
     "@octokit/tsconfig": "^4.0.0",
     "@types/jest": "^29.0.0",
     "esbuild": "^0.25.0",
