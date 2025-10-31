@@ -30,7 +30,7 @@
     "@octokit/types": "^16.0.0"
   },
   "devDependencies": {
-    "@octokit/request": "^10.0.2",
+    "@octokit/request": "^10.0.6",
     "@octokit/tsconfig": "^4.0.0",
     "@types/node": "^24.0.0",
     "@vitest/coverage-v8": "^4.0.0",
